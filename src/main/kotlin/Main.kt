@@ -23,9 +23,7 @@ import java.util.stream.StreamSupport
 /**
  * Wrapper function calling the actual function to allow for easier unit testing
  */
-fun main(args: Array<String>) {
-    process(System.`in`.bufferedReader(StandardCharsets.US_ASCII), System.out::println)
-}
+fun main(args: Array<String>) = process(System.`in`.bufferedReader(StandardCharsets.US_ASCII), System.out::println)
 
 /**
  *  The general concept here is simple:
@@ -35,7 +33,7 @@ fun main(args: Array<String>) {
  *
  *  After that we process all queries in parallel, and combine the bitmap indices to find all matching rows
  *  Additionally, we remove those rows from the result set whose row ID is higher than the row ID of the query (meaning
- *  that they are, from the perspective of the Query, in the future, and shouldn’t be included)
+ *  that they are, from the perspective of the Query, in the future, and shouldn't be included)
  *
  *  The final dataset is then printed sequentially again, to ensure proper ordering
  *

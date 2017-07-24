@@ -22,24 +22,24 @@ import java.nio.charset.StandardCharsets
 class MainTest {
     @Test
     fun test() {
-        prewarm()
+        preWarm()
 
-        runTest("/testdata1")
-        runTest("/testdata2")
-        runTest("/testdata3")
+        runTest("/testData1")
+        runTest("/testData2")
+        runTest("/testData3")
     }
 
     companion object {
-        private fun prewarm() {
+        private fun preWarm() {
             for (i in 0..50) {
-                runSingleTest(getReader("/testdata1"))
-                runSingleTest(getReader("/testdata2"))
-                runSingleTest(getReader("/testdata3"))
+                runSingleTest(getReader("/testData1"))
+                runSingleTest(getReader("/testData2"))
+                runSingleTest(getReader("/testData3"))
             }
         }
 
         private fun runTest(name: String) {
-            val results = (0..20).map{
+            val results = (0..20).map {
                 this.runSingleTest(MainTest.getReader(name))
             }
             println(String.format("%s: %.2fms±%.2f%%", name, results.average() * 0.000_001, results.stddev() * 100))
