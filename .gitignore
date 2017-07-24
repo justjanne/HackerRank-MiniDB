@@ -1,0 +1,13 @@
+# Generated
+/build/
+/out/
+
+# Gradle
+/.gradle/
+/local.properties
+
+# IDEA
+/.idea/
+*.iml
+*.ipr
+*.iws
